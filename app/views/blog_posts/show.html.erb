@@ -8,7 +8,7 @@
       <div class="panel panel-info">
         <div class="panel-body">
         	<% @blog_post.comments.each do |comment| %> 
-          by <%= comment.author %> <br />
+          by <%= comment.user.email %> <br />
           <p><%= comment.comment_entry %></p>
         	<% end %>
         </div>
