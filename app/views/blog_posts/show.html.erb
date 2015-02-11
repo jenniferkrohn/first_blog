@@ -6,13 +6,13 @@
 <div class="row"> 
 	  <div class="col-md-6">
       <div class="panel panel-info">
+        <% @blog_post.comments.each do |comment| %> 
         <div class="panel-body">
-        	<% @blog_post.comments.each do |comment| %> 
-          by <%= comment.user.email %> <br />
+          <p><strong><%= comment.user.email %></strong> said: </p>
           <p><%= comment.comment_entry %></p>
-        	<% end %>
+        	<p><span class="posted-at"><%= comment.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span></p>
         </div>
-   				
+   			<% end %>
     </div> <!-- end of panel panel -->
     </div> <!-- end of column -->
   

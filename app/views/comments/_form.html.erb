@@ -11,21 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
+
+
+<form>
+  <div class="form-group">
+    <%= f.text_field :author, class: "form-control form-control-inline", placeholder: "Commenter Name" %> <!--checked-->
   </div>
-   <div class="form-group cant-see-me">
-      <%= f.number_field :user_id, value: current_user.id %>
+
+  <div class="form-group cant-see-me">
+    <%= f.number_field :user_id, value: current_user.id %> <!--checked-->
   </div>
-  <div class="field">
-    <%= f.label :comment_entry %><br>
-    <%= f.text_area :comment_entry %>
+
+  <div class="form-group form-control-inline">
+    <%= f.text_area :comment_entry, class: "form-control form-control-inline", :rows => 10, placeholder: "What are your thoughts?" %>  <!--checked 2-->
   </div>
-  <div class="field cant-see-me">
-    <%= f.number_field :blog_post_id, value: @blog_post.id %>
+
+  <div class="form-group cant-see-me">
+    <%= f.number_field :blog_post_id, value: @blog_post.id %> <!--checked 2-->
   </div>
+
+  <p></p>
   <div class="actions">
     <%= f.submit "SUBMIT IT!", class: "btn btn-primary"%>
   </div>
+ 
+</form>
+
+
 <% end %>

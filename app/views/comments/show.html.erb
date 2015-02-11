@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @comment.author %>
-</p>
-
-<p>
-  <strong>Comment entry:</strong>
+<p><strong>Comment entry:</strong>
   <%= @comment.comment_entry %>
 </p>
+
+<% @blog_post.comments.each do |comment| %>
+<div class="panel-heading">
+	<h2><%= @blog_post.title %></h2>
+</div>
+	<div class="panel-body">
+  	by <strong><%= @blog_post.user.email %></strong> <span class="posted-at">posted at: <%= @blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></span><br />
+  	<p>
+  		<%= @blog_post.blog_entry %>
+  	</p>
+  	<p><span class="posted-at"><%= comment.created_at.strftime('%m/%d/%Y %H:%M:%S') %></span></p>
+  </div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

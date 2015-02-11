@@ -3,7 +3,7 @@
 <h1>Current Blog Posts</h1>
 
 
-
+<body>
 <div class="row"> 
   <% @blog_posts.each do |blog_post| %>
     <div class="col-md-6">
@@ -13,6 +13,7 @@
         </div>
         <div class="panel-body">
           by <%= blog_post.user.email %><br />
+          <p><span class="posted-at">posted at: <%= blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></p>
           <p><%= blog_post.blog_entry[0..200] %>...[<%= link_to "READ MORE", blog_post %>]</p>
         </div>
         <div class="panel-footer">
@@ -26,3 +27,5 @@
 <br>
 
 <%= link_to 'New Blog post', new_blog_post_path %>
+
+</body> <!--end of body class -->
